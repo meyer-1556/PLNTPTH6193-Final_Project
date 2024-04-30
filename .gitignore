@@ -1,5 +1,11 @@
-raw_data/
-programs/
-results/
-work/
-*~
+raw_data/*
+!raw_data/.gitkeep
+
+programs/*
+!programs/.gitkeep
+
+results/*
+!results/.gitkeep
+
+work/*
+!work/.gitkeep

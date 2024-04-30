@@ -7,7 +7,7 @@
 set -euo pipefail
 
 # Define the base directory for the project
-BASE_DIR="/fs/ess/PAS2700/users/meyer1556/FinalProject"
+BASE_DIR="/fs/ess/PAS2700/users/meyer1556/Final_Project"
 
 # Define the path to the configuration file
 CONFIG="${BASE_DIR}/programs/MetONTIIME/metontiime2.conf"

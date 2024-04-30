@@ -1,7 +1,7 @@
 ## Step 1: Prepare the data
 
 # Navigate to Final Project directory
-cd FinalProject
+cd Final_Project
 
 # Concatenate all .fastq reads into one file per barcode
 sbatch scripts/concat_barcodes.sh
@@ -21,6 +21,10 @@ conda create -n nextflow_env
 conda activate nextflow_env
 conda install nextflow
 
+# Install QIIME 2 (if not already installed)
+wget https://data.qiime2.org/distro/amplicon/qiime2-amplicon-2024.2-py38-linux-conda.yml
+conda env create -n qiime2-amplicon-2024.2 --file qiime2-amplicon-2024.2-py38-linux-conda.yml
+
 # Install MetONTIIME (if not already installed)
 git clone https://github.com/MaestSi/MetONTIIME.git
 cd MetONTIIME
@@ -30,12 +34,12 @@ wget https://www.arb-silva.de/fileadmin/silva_databases/qiime/Silva_132_release.
 unzip Silva_132_release.zip
 
 # Modify metontiime2.comf file
-    # workDir="/fs/ess/PAS2700/users/meyer1556/FinalProject/raw_data/concatenated_fastq_gz"
-    # sampleMetadata="/fs/ess/PAS2700/users/meyer1556/FinalProject/raw_data/sample-metadata.tsv"
-    # dbSequencesFasta="/fs/ess/PAS2700/users/meyer1556/FinalProject/programs/databases/SILVA_132_QIIME_release/rep_set/rep_set_16S_only/97/silva_132_97_16S.fna"
-    # dbTaxonomyTsv="/fs/ess/PAS2700/users/meyer1556/FinalProject/programs/archive/SILVA_138_SSURef_NR99_tax_silva_taxonomy.tsv"
+    # workDir="/fs/ess/PAS2700/users/meyer1556/Final_Project/raw_data/concatenated_fastq_gz"
+    # sampleMetadata="/fs/ess/PAS2700/users/meyer1556/Final_Project/raw_data/sample-metadata.tsv"
+    # dbSequencesFasta="/fs/ess/PAS2700/users/meyer1556/Final_Project/programs/databases/SILVA_132_QIIME_release/rep_set/rep_set_16S_only/97/silva_132_97_16S.fna"
+    # dbTaxonomyTsv="/fs/ess/PAS2700/users/meyer1556/Final_Project/programs/archive/SILVA_138_SSURef_NR99_tax_silva_taxonomy.tsv"
     # executor = 'slurm'
-	# Detele the line "queue = 'hugemem'"
+	# Detele the line "queue = 'workq'"
 
 # Create nextflow.config file
 echo "
@@ -45,4 +49,3 @@ process.clusterOptions='--account=PAS2700'
 
 # Run MetONTIIME
 sbatch scripts/run_metontiime.sh
-

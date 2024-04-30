@@ -8,8 +8,8 @@ set -euo pipefail
 
 
 # Define the source and target directories
-SOURCE_DIR="/fs/ess/PAS2700/users/meyer1556/FinalProject/raw_data/concatenated_fastq"
-TARGET_DIR="/fs/ess/PAS2700/users/meyer1556/FinalProject/raw_data/concatenated_fastq_gz"
+SOURCE_DIR="/fs/ess/PAS2700/users/meyer1556/Final_Project/raw_data/concatenated_fastq"
+TARGET_DIR="/fs/ess/PAS2700/users/meyer1556/Final_Project/raw_data/concatenated_fastq_gz"
 
 # Create the target directory if it doesn't already exist
 mkdir -p "$TARGET_DIR"
