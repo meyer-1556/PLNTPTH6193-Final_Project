@@ -1,5 +1,6 @@
 raw_data/*
 !raw_data/.gitkeep
+!raw_data/sample-metadata.tsv
 
 programs/*
 !programs/.gitkeep
